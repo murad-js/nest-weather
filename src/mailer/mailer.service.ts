@@ -5,6 +5,8 @@ import { Injectable } from '@nestjs/common';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
+import { Frequency } from '../common/constants/frequency';
+
 @Injectable()
 export class MailerService {
   private transporter: nodemailer.Transporter;
@@ -28,7 +30,6 @@ export class MailerService {
       },
     );
 
-    // Load Handlebars templates
     this.confirmationTemplate = this.loadTemplate('confirmation.hbs');
     this.weatherUpdateTemplate = this.loadTemplate('weather-update.hbs');
   }
@@ -62,7 +63,7 @@ export class MailerService {
   async sendWeatherUpdate(
     email: string,
     city: string,
-    frequency: 'hourly' | 'daily',
+    frequency: Frequency,
     weather: { temperature: number; humidity: number; description: string },
     unsubscribeToken: string,
   ) {

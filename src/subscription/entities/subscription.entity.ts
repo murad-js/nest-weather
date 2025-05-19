@@ -6,6 +6,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+import { Frequency } from '../../common/constants/frequency';
+
 @Entity('subscription')
 export class Subscription {
   @PrimaryGeneratedColumn('uuid')
@@ -19,10 +21,10 @@ export class Subscription {
 
   @Column({
     type: 'enum',
-    enum: ['hourly', 'daily'],
-    default: 'daily',
+    enum: [Frequency.HOURLY, Frequency.DAILY],
+    default: Frequency.DAILY,
   })
-  frequency: 'hourly' | 'daily';
+  frequency: Frequency;
 
   @Column({ default: false })
   confirmed: boolean;

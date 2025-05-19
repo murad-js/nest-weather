@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
+import { Frequency } from '../common/constants/frequency';
 import { MailerService } from '../mailer/mailer.service';
 import { Subscription } from '../subscription/entities/subscription.entity';
 import { WeatherService } from '../weather/weather.service';
@@ -20,7 +21,7 @@ export class WeatherSchedulerService {
   async handleHourlyWeatherUpdates() {
     const hourlySubscribers = await this.subscriptionRepository.find({
       where: {
-        frequency: 'hourly',
+        frequency: Frequency.HOURLY,
         confirmed: true,
       },
     });
@@ -34,7 +35,7 @@ export class WeatherSchedulerService {
         await this.mailerService.sendWeatherUpdate(
           subscriber.email,
           subscriber.city,
-          'hourly',
+          Frequency.HOURLY,
           weather,
           subscriber.unsubscribeToken,
         );
@@ -54,7 +55,7 @@ export class WeatherSchedulerService {
   async handleDailyWeatherUpdates() {
     const dailySubscribers = await this.subscriptionRepository.find({
       where: {
-        frequency: 'daily',
+        frequency: Frequency.DAILY,
         confirmed: true,
       },
     });
@@ -65,7 +66,7 @@ export class WeatherSchedulerService {
         await this.mailerService.sendWeatherUpdate(
           subscriber.email,
           subscriber.city,
-          'daily',
+          Frequency.DAILY,
           weather,
           subscriber.unsubscribeToken,
         );

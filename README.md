@@ -42,7 +42,7 @@ docker ps
 
 3. Run migrations using the container ID:
 ```bash
-docker exec <container_id> npm run build-migration
+docker exec <container_id> npm run prod-migration:run
 ```
 
 To stop all services:
@@ -57,14 +57,14 @@ docker-compose down
 npm install
 ```
 
-2. Start the development server:
-```bash
-npm run start:dev
-```
-
-3. In a new terminal, run migrations:
+2. Run migrations:
 ```bash
 npm run migration:run
+```
+
+3. Start the development server:
+```bash
+npm run start:dev
 ```
 
 ## How to Use

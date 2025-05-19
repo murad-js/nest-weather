@@ -16,7 +16,7 @@ export class WeatherSchedulerService {
     private mailerService: MailerService,
   ) {}
 
-  @Cron(CronExpression.EVERY_10_SECONDS)
+  @Cron(CronExpression.EVERY_HOUR)
   async handleHourlyWeatherUpdates() {
     const hourlySubscribers = await this.subscriptionRepository.find({
       where: {

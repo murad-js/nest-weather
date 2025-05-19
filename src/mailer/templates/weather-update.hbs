@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Weather Update for {{city}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .weather-info {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .temperature {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .unsubscribe {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+        }
+        .unsubscribe a {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Update for {{city}}</h1>
+    
+    <div class="weather-info">
+        <p class="temperature">{{temperature}}°C</p>
+        <p>Humidity: {{humidity}}%</p>
+        <p>Conditions: {{description}}</p>
+    </div>
+
+    <p>This update was sent based on your {{frequency}} subscription preference.</p>
+    
+    <div class="unsubscribe">
+        <p>To unsubscribe from these updates, <a href="{{unsubscribeUrl}}">click here</a></p>
+    </div>
+</body>
+</html> 

@@ -6,9 +6,6 @@ import { Response } from 'express';
 export class AppController {
   @Get()
   serveStaticPage(@Res() res: Response) {
-    console.log('serveStaticPage');
-    console.log(join(__dirname, '..', 'public', 'index.html'));
-
     return res.sendFile(join(__dirname, '..', 'public', 'index.html'));
   }
 }

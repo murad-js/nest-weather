@@ -24,7 +24,7 @@ cp .env.example .env
 
 2. Configure your environment variables in `.env`.
 
-3. For email credentials, please refer to [Google documentation](https://docs.google.com/document/d/your-doc-idhttps://support.google.com/accounts/answer/185833?hl=en#zippy=%2Cwhy-you-may-need-an-app-password).
+3. For email credentials, please refer to [Google documentation](https://support.google.com/accounts/answer/185833?hl=en#zippy=%2Cwhy-you-may-need-an-app-password).
 
 ## Running the Application
 
